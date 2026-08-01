@@ -14,7 +14,12 @@ function iniciarExperiencia() {
 
     introEjecutada = true;
 
-    // Forzar inicio del video de portada inmediatamente tras la interacción
+    // Revelar la web principal inmediatamente debajo de la animación
+    if (contenidoWeb) {
+        contenidoWeb.classList.remove('web-oculta');
+        contenidoWeb.classList.add('web-visible');
+    }
+
     if (videoPortadaLoop) {
         videoPortadaLoop.play().catch(e => console.log("Carga diferida de portada", e));
     }
@@ -25,20 +30,22 @@ function iniciarExperiencia() {
         setTimeout(() => botonIntro.style.display = 'none', 300);
     }
 
-    // Reproducir música
+    // Reproducción de audio con manejo de permisos del navegador
     if (audio) {
         audio.volume = 0.5;
         audio.play().then(() => {
             if (playPauseBtn) playPauseBtn.classList.add('playing');
         }).catch(e => {
-            console.log("Autoplay bloqueado por navegador:", e);
+            console.log("Autoplay restringido por el navegador:", e);
         });
     }
 
     if (videoIntro) {
         videoIntro.muted = false;
         videoIntro.play().then(() => {
-            console.log("Intro reproduciéndose");
+            setTimeout(() => {
+                hacerFadeOut();
+            }, 1200);
         }).catch(error => {
             hacerFadeOut();
         });
@@ -50,22 +57,17 @@ function iniciarExperiencia() {
     }
 
     function hacerFadeOut() {
-        if (contenidoWeb) {
-            contenidoWeb.classList.remove('web-oculta');
-            contenidoWeb.classList.add('web-visible');
-        }
-
         if (contenedorIntro) {
             contenedorIntro.classList.add('desvanecer-intro');
         }
         
         if (musicPlayer) {
-            setTimeout(() => { musicPlayer.classList.remove('hidden-player'); }, 1000);
+            setTimeout(() => { musicPlayer.classList.remove('hidden-player'); }, 600);
         }
 
         setTimeout(() => {
             if (contenedorIntro) contenedorIntro.style.display = 'none';
-        }, 1000);
+        }, 800);
     }
 }
 
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-/* REVELAR SECCIONES AL SCROLL */
+/* REVELAR SECCIONES AL HACER SCROLL */
 document.addEventListener('DOMContentLoaded', () => {
     const reveals = document.querySelectorAll('.reveal-section');
 
@@ -105,13 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    setTimeout(revealOnScroll, 1200); 
+    setTimeout(revealOnScroll, 800); 
 });
 
-/* INTERACCIÓN VINILOS */
+/* INTERACCIÓN VINILOS DE LA FECHA */
 document.addEventListener('DOMContentLoaded', () => {
     const circles = document.querySelectorAll('.vinyl-disc-btn');
     const finalCard = document.getElementById('final-date-card');
+    const txtInstruccion = document.getElementById('instruccion-fecha');
     let revealedCount = 0;
 
     circles.forEach(circle => {
@@ -120,10 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 circle.classList.add('flipped');
                 revealedCount++;
 
-                if (revealedCount === 3) {
+                if (txtInstruccion) {
+                    txtInstruccion.style.opacity = '0';
+                    setTimeout(() => { txtInstruccion.style.display = 'none'; }, 300);
+                }
+
+                if (revealedCount === 3 && finalCard) {
                     setTimeout(() => {
-                        if (finalCard) finalCard.classList.add('show');
-                    }, 500);
+                        finalCard.classList.add('show');
+                    }, 400);
                 }
             }
         });

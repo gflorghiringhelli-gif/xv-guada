@@ -9,7 +9,6 @@
     
     --color-crema: #fdfaf0;
     --color-naranja: #ff8833;
-    --color-oliva: #9bb168;
     --color-celeste: #a8dadc;
     --color-rojo: #d9383a;
     --color-amarillo: #fcd34d;
@@ -55,7 +54,7 @@ body {
 ========================================================= */
 #contenedor-intro {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background-color: transparent !important;
+    background-color: #181424;
     display: flex; justify-content: center; align-items: center;
     z-index: 99999; cursor: pointer; overflow: hidden;
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
@@ -77,7 +76,7 @@ body {
     100% { transform: scale(1.04); box-shadow: 0 6px 20px rgba(254, 136, 19, 0.6); }
 }
 .desvanecer-intro { opacity: 0 !important; pointer-events: none !important; }
-.web-oculta { opacity: 0; visibility: hidden; transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1); }
+.web-oculta { opacity: 0; visibility: hidden; transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
 .web-visible { opacity: 1 !important; visibility: visible !important; }
 .hidden { display: none !important; }
 
@@ -123,118 +122,108 @@ body {
 }
 
 /* ESTRUCTURA GENERAL DE BLOQUES */
-.section-block { padding: 60px 20px; display: flex; justify-content: center; align-items: center; position: relative; }
+.section-block { 
+    padding: 60px 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
 .content-box-large { width: 100%; max-width: 480px; text-align: center; }
 
-.block-crema { background-color: var(--color-crema); color: #222; }
-.block-naranja { background-color: var(--color-naranja); color: #fff; }
-.block-oliva { background-color: var(--color-oliva); color: #152e00; }
-.block-dresscode-celeste { background-color: var(--color-celeste); color: #0f2c30; }
-.block-rojo { background-color: var(--color-rojo); color: #fff; }
-.block-amarillo { background-color: var(--color-amarillo); color: #1a1a1a; }
-.block-azul-editorial { background-color: #1c152c; color: var(--silver); }
-.countdown-section { background-color: #1c152c; }
-
 /* =========================================================
-   TEXTURAS TIPO PATRÓN BLANCO TRANSPARENTE
+   FONDOS POR BLOQUE
 ========================================================= */
-.bg-pattern-dots {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.28) 2px, transparent 2px);
-    background-size: 24px 24px;
+
+/* Bloque 1: Frase de Invitación */
+.block-crema { 
+    background-image: url('img/bg-invitacion.jpg') !important; 
 }
 
-.bg-pattern-stars {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.5px, transparent 1.5px), radial-gradient(rgba(255, 255, 255, 0.18) 2.5px, transparent 2.5px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+/* Bloque 2: La Fecha */
+.block-naranja { 
+    background-image: url('img/bg-fecha.jpg') !important; 
 }
 
-/* =========================================================
-   STICKERS DE FONDO Y UBICACIONES (CONFIGURACIÓN FINA)
-========================================================= */
-.section-with-deco { position: relative; overflow: hidden; }
-
-.deco-1-bg { 
-    background-image: url('img/deco-1.png'), radial-gradient(rgba(255, 255, 255, 0.28) 2px, transparent 2px);
-    background-repeat: no-repeat, repeat;
-    background-position: center, 0 0;
-    background-size: 110% auto, 24px 24px;
+/* Bloque 3A: Ceremonia Religiosa (Jean) */
+.bloque-ceremonia-separado {
+    background-image: url('img/fondo-ceremonia.jpg') !important;
 }
 
-.deco-2-bg { 
-    background-image: url('img/deco-2.png');
-    background-repeat: no-repeat;
-    background-position: center 90%;
-    background-size: 100% auto;
+/* Bloque 3B: Celebración / Fiesta (Estrellas) */
+.bloque-fiesta-separado {
+    background-image: url('img/fondo-fiesta.jpg') !important;
 }
 
-.deco-3-bg { 
-    background-image: url('img/deco-3.png');
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: 160px auto;
+/* Bloque 4: Dress Code */
+.block-dresscode-celeste { 
+    background-image: url('img/bg-dresscode.jpg') !important; 
 }
 
-/* BLOQUE 4 (DRESS CODE): PATRÓN CENTRADO Y DESORGANIZADO */
-.deco-4-bg { 
-    background-image: url('img/deco-4.png');
-    background-repeat: repeat;
-    background-position: center center;
-    background-size: 140px auto;
+/* Bloque 5: Confirmar Asistencia (RSVP) */
+.block-rojo { 
+    background-image: url('img/bg-rsvp.jpg') !important; 
 }
 
-/* BLOQUE 5 (RSVP / ASISTIR): STICKER GIGANTE A UN COSTADO */
-.deco-5-side-bg { 
-    background-image: url('img/deco-5.png');
-    background-repeat: no-repeat;
-    background-position: 115% center; 
-    background-size: 150% auto;
+/* Bloque 6: Regalos / Banco */
+.block-amarillo { 
+    background-image: url('img/bg-regalos.jpg') !important; 
 }
 
-.deco-6-bg { 
-    background-image: url('img/deco-6.png');
-    background-repeat: repeat;
-    background-position: 20px 10px;
-    background-size: 120px auto;
+/* Bloque 7 y 8: Cierre y Countdown */
+.block-azul-editorial, .countdown-section { 
+    background-image: url('img/bg-final.jpg') !important; 
 }
 
-.deco-7-single-bg { 
-    background-image: url('img/deco-7.png');
-    background-repeat: no-repeat;
-    background-position: -20% center;
-    background-size: 95% auto;
-}
-
-/* TARJETAS CRISTAL TRASLÚCIDAS */
+/* TARJETAS CRISTAL TRASLÚCIDAS GENERALES */
 .glass-card-invitation {
-    background: rgba(255, 255, 255, 0.84) !important;
+    background: rgba(255, 255, 255, 0.88) !important;
     border: 1.5px solid rgba(255, 255, 255, 0.95);
     border-radius: 26px;
-    padding: 35px 25px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    padding: 28px 20px !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 440px;
-    margin: 0 auto;
+    max-width: 360px !important;
+    margin: 15px auto !important;
     text-align: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-/* TEXTOS Y COLORES */
-.title-large-custom { font-size: 2.6rem !important; margin-bottom: 15px; }
-.title-compact { font-size: 2.2rem !important; margin-bottom: 10px; }
+/* CORRECCIÓN COLOR TEXTO DE INVITACIÓN (BLOQUE 1) */
+.custom-subtitle-large-custom {
+    color: #1a233a !important; /* Azul marino oscuro legible */
+    font-size: 1.05rem !important;
+    line-height: 1.55 !important;
+    font-weight: 700 !important;
+}
+
+/* TEXTOS Y ESTILOS GENERALES */
+.title-large-custom { font-size: 2.5rem !important; margin-bottom: 15px; }
 .nowrap-title { white-space: nowrap; }
 
-.text-large-custom { font-size: 1.08rem !important; line-height: 1.55 !important; font-weight: 600; margin-bottom: 12px; }
-
-.text-green-dark { color: #183e0c !important; }
+.text-large-custom { font-size: 1.05rem !important; line-height: 1.55 !important; font-weight: 600; margin-bottom: 12px; }
 .title-blue-navy { color: #1a233a !important; }
 .title-dark-color { color: #2b1f42 !important; }
 .title-red { color: #d9383a !important; font-weight: 800; }
 .text-black { color: #111111 !important; }
-.text-white { color: #ffffff !important; }
 .text-final-navy { color: #12192c !important; }
 
 .dc-title-large { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
 .dc-style-large { font-weight: 800; font-size: 1.3rem; margin-bottom: 12px; }
+
+/* DRESS CODE CHICAS COMPACTO */
+.texto-mujeres-compacto {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    max-width: 270px;
+    margin: 0 auto 20px auto !important;
+    color: #333;
+}
+
 .bank-details-large { font-size: 1.05rem; line-height: 1.8; font-weight: 600; }
 
 .hover-3d { transition: transform 0.4s, box-shadow 0.4s; will-change: transform; }
@@ -244,19 +233,13 @@ body {
 .reveal-section.active { opacity: 1; transform: translateY(0); }
 
 .icon-large { 
-    font-size: 3.8rem !important; 
-    margin-bottom: 18px; 
+    font-size: 3.5rem !important; 
+    margin-bottom: 15px; 
     display: inline-block;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
 }
 
-/* =========================================================
-   DISCOS DE VINILO EN HORIZONTAL Y TARJETA DESPLEGABLE ABAJO
-========================================================= */
-.date-interaction-container {
-    padding: 10px 0;
-    width: 100%;
-}
+/* DISCOS DE VINILO Y FECHA */
+.date-interaction-container { padding: 10px 0; width: 100%; }
 
 .flex-column-center {
     display: flex;
@@ -267,186 +250,98 @@ body {
 }
 
 .vinyl-disc-btn {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    background: #111111;
-    border: 2px solid #333333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    perspective: 1000px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.35), inset 0 0 0 2px rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
+    width: 85px; height: 85px; border-radius: 50%;
+    background: #111111; border: 2px solid #333333;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer; position: relative; perspective: 1000px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35); transition: all 0.3s ease;
 }
 
-.vinyl-disc-btn:hover {
-    transform: scale(1.05) rotate(5deg);
-}
+.vinyl-disc-btn:hover { transform: scale(1.05) rotate(5deg); }
 
 .vinyl-grooves {
-    position: absolute;
-    width: 82%;
-    height: 82%;
-    border-radius: 50%;
+    position: absolute; width: 82%; height: 82%; border-radius: 50%;
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: inset 0 0 0 6px rgba(255,255,255,0.05), inset 0 0 0 12px rgba(0,0,0,0.6);
     pointer-events: none;
 }
 
 .vinyl-center {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
+    width: 52px; height: 52px; border-radius: 50%;
     background: radial-gradient(circle, #ff8c00 0%, #d9383a 100%);
-    border: 2px solid #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+    border: 2px solid #ffffff; display: flex; justify-content: center;
+    align-items: center; position: relative; overflow: hidden;
 }
 
-.vinyl-disc-btn .front, 
-.vinyl-disc-btn .back {
-    position: absolute; 
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%; height: 100%;
-    display: flex !important; 
-    justify-content: center !important; 
-    align-items: center !important;
-    text-align: center !important;
-    backface-visibility: hidden; 
+.vinyl-disc-btn .front, .vinyl-disc-btn .back {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%; display: flex !important; 
+    justify-content: center !important; align-items: center !important;
+    text-align: center !important; backface-visibility: hidden; 
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 800;
-    color: #ffffff;
-    font-size: 0.8rem;
-    line-height: 1 !important; 
-    margin: 0 !important; 
-    padding: 0 !important;
+    font-weight: 800; color: #ffffff; font-size: 0.8rem;
 }
 
 .vinyl-disc-btn .back {
-    transform: rotateY(180deg);
-    background: #ffffff; 
-    color: #d9383a; 
-    border-radius: 50%;
-    font-size: 1.05rem; 
-    font-weight: 800;
+    transform: rotateY(180deg); background: #ffffff; 
+    color: #d9383a; border-radius: 50%; font-size: 1.05rem; font-weight: 800;
 }
 
-.fit-year {
-    font-size: 0.8rem !important;
-    letter-spacing: -0.5px !important;
-    line-height: 1 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 100% !important;
-}
+.fit-year { font-size: 0.8rem !important; }
 
 .vinyl-disc-btn.flipped .front { transform: rotateY(180deg); }
 .vinyl-disc-btn.flipped .back { transform: rotateY(360deg); }
 
-/* ANIMACIÓN DE DESLIZAMIENTO HACIA ABAJO DE LA TARJETA */
+.texto-instruccion {
+    color: #222222; font-weight: 600; font-size: 0.85rem;
+    margin-bottom: 12px; transition: opacity 0.4s ease;
+}
+
+/* TARJETA DESPLEGABLE */
 .date-card-pop {
-    background: #ffffff;
-    color: #111;
-    border-radius: 20px;
-    padding: 25px 20px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
+    background: #ffffff; color: #111; border-radius: 20px;
+    padding: 20px; text-align: center; margin: 0 auto; width: 100%;
 }
 
 .hidden-card {
-    opacity: 0;
-    max-height: 0;
-    transform: translateY(-20px);
-    overflow: hidden;
-    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: 0 20px;
-    border: none;
-    margin-top: 0;
+    opacity: 0; max-height: 0; transform: translateY(-20px);
+    overflow: hidden; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 20px; border: none; margin-top: 0;
 }
 
 .hidden-card.show {
-    opacity: 1;
-    max-height: 350px;
-    transform: translateY(0);
-    padding: 25px 20px;
-    margin-top: 25px;
+    opacity: 1; max-height: 350px; transform: translateY(0);
+    padding: 20px; margin-top: 20px;
 }
 
-.date-text-large { font-family: var(--font-apple); font-weight: 800; font-size: 1.5rem; color: #111; line-height: 1.4; margin: 10px 0; }
+.date-text-large { font-weight: 800; font-size: 1.5rem; color: #111; line-height: 1.4; margin: 10px 0; }
 .text-dark-title { color: #111; font-size: 1.8rem; }
 
 /* BOTONES */
 .btn-block-large-dark {
-    display: inline-block; padding: 14px 28px; background: #111; color: #fff;
-    text-decoration: none; font-weight: 700; font-size: 0.9rem; border-radius: 35px;
-    transition: all 0.3s; margin-top: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    display: inline-block; padding: 12px 26px; background: #111; color: #fff;
+    text-decoration: none; font-weight: 700; font-size: 0.85rem; border-radius: 35px;
+    transition: all 0.3s; box-shadow: 0 6px 18px rgba(0,0,0,0.15); margin-top: 5px;
 }
 .btn-block-large-dark:hover { background: #333; transform: scale(1.03); }
 
-/* BOTÓN NARANJA DE DRESS CODE (PINTEREST) */
 .btn-block-large-orange {
-    display: inline-block;
-    padding: 13px 26px;
-    background: #ff8833;
-    color: #ffffff !important;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 800;
-    border-radius: 35px;
-    border: none;
-    box-shadow: 0 6px 18px rgba(255, 136, 51, 0.35);
-    transition: all 0.3s ease;
+    display: inline-block; padding: 13px 26px; background: #ff8833;
+    color: #ffffff !important; text-decoration: none; font-size: 0.9rem;
+    font-weight: 800; border-radius: 35px; border: none;
+    box-shadow: 0 6px 18px rgba(255, 136, 51, 0.35); transition: all 0.3s ease;
 }
 
-.btn-block-large-orange:hover {
-    background: #e67320;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 22px rgba(255, 136, 51, 0.5);
-}
-
-/* BOTÓN VERDE AGUA DE CONFIRMAR ASISTENCIA */
 .btn-block-large-mint {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #9ed9d3;
-    color: #0f2c30 !important;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 0.95rem;
-    border-radius: 35px;
-    box-shadow: 0 8px 22px rgba(158, 217, 211, 0.4);
-    transition: all 0.3s ease;
+    display: inline-block; padding: 15px 30px; background: #9ed9d3;
+    color: #0f2c30 !important; text-decoration: none; font-weight: 800;
+    font-size: 0.95rem; border-radius: 35px;
+    box-shadow: 0 8px 22px rgba(158, 217, 211, 0.4); transition: all 0.3s ease;
 }
-
-.btn-block-large-mint:hover {
-    background: #86c9c2;
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 10px 25px rgba(158, 217, 211, 0.6);
-}
-
-.btn-block-large-white {
-    display: inline-block; padding: 15px 30px; background: #fff; color: #d9383a;
-    text-decoration: none; font-weight: 800; font-size: 0.95rem; border-radius: 35px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15); transition: all 0.3s;
-}
-.btn-block-large-white:hover { transform: scale(1.04); }
 
 .signature-aston-dark {
-    font-family: var(--font-aston) !important;
-    font-size: 2.4rem !important;
-    line-height: 1.3;
-    color: #12192c !important;
-    font-weight: 700;
+    font-family: var(--font-aston) !important; font-size: 2.4rem !important;
+    line-height: 1.3; color: #12192c !important; font-weight: 700;
 }
 
 /* CUENTA REGRESIVA Y FOOTER */
@@ -459,16 +354,22 @@ body {
 .time-box-block-large {
     background: rgba(28, 21, 44, 0.75); backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.3); border-radius: 16px;
-    width: 80px; height: 80px; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 75px; height: 75px; display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
-.time-box-block-large span { font-size: 1.5rem; font-weight: 800; color: var(--white); }
-.time-box-block-large small { font-size: 0.55rem; text-transform: uppercase; color: #ddd; margin-top: 4px; letter-spacing: 1px; }
+.time-box-block-large span { font-size: 1.4rem; font-weight: 800; color: var(--white); }
+.time-box-block-large small { font-size: 0.55rem; text-transform: uppercase; color: #ddd; margin-top: 2px; }
 
 .hidden-msg { display: none; }
 .creditos-finales { padding: 20px 0; font-size: 0.65rem; letter-spacing: 1.5px; color: #aaa; text-align: center; background: #1c152c; border-top: 1px solid rgba(255,255,255,0.08); }
 
+.mb-25 { margin-bottom: 25px !important; }
+.mb-20 { margin-bottom: 20px !important; }
+.mb-15 { margin-bottom: 15px !important; }
+.mb-10 { margin-bottom: 10px !important; }
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+
 @media (max-width: 480px) {
-    .section-block { padding: 50px 15px; }
-    .vinyl-disc-btn { width: 85px; height: 85px; }
+    .section-block { padding: 40px 15px; }
+    .vinyl-disc-btn { width: 80px; height: 80px; }
 }
