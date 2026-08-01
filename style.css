@@ -49,9 +49,7 @@ body {
 .pt-20 { padding-top: 20px !important; }
 .pb-50 { padding-bottom: 50px !important; }
 
-/* =========================================================
-   INTRO Y PANTALLA DE APERTURA
-========================================================= */
+/* INTRO Y PANTALLA DE APERTURA */
 #contenedor-intro {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: #181424;
@@ -134,49 +132,15 @@ body {
 }
 .content-box-large { width: 100%; max-width: 480px; text-align: center; }
 
-/* =========================================================
-   FONDOS POR BLOQUE
-========================================================= */
-
-/* Bloque 1: Frase de Invitación */
-.block-crema { 
-    background-image: url('img/bg-invitacion.jpg') !important; 
-}
-
-/* Bloque 2: La Fecha */
-.block-naranja { 
-    background-image: url('img/bg-fecha.jpg') !important; 
-}
-
-/* Bloque 3A: Ceremonia Religiosa (Jean) */
-.bloque-ceremonia-separado {
-    background-image: url('img/fondo-ceremonia.jpg') !important;
-}
-
-/* Bloque 3B: Celebración / Fiesta (Estrellas) */
-.bloque-fiesta-separado {
-    background-image: url('img/fondo-fiesta.jpg') !important;
-}
-
-/* Bloque 4: Dress Code */
-.block-dresscode-celeste { 
-    background-image: url('img/bg-dresscode.jpg') !important; 
-}
-
-/* Bloque 5: Confirmar Asistencia (RSVP) */
-.block-rojo { 
-    background-image: url('img/bg-rsvp.jpg') !important; 
-}
-
-/* Bloque 6: Regalos / Banco */
-.block-amarillo { 
-    background-image: url('img/bg-regalos.jpg') !important; 
-}
-
-/* Bloque 7 y 8: Cierre y Countdown */
-.block-azul-editorial, .countdown-section { 
-    background-image: url('img/bg-final.jpg') !important; 
-}
+/* FONDOS POR BLOQUE */
+.block-crema { background-image: url('img/bg-invitacion.jpg') !important; }
+.block-naranja { background-image: url('img/bg-fecha.jpg') !important; }
+.bloque-ceremonia-separado { background-image: url('img/fondo-ceremonia.jpg') !important; }
+.bloque-fiesta-separado { background-image: url('img/fondo-fiesta.jpg') !important; }
+.block-dresscode-celeste { background-image: url('img/bg-dresscode.jpg') !important; }
+.block-rojo { background-image: url('img/bg-rsvp.jpg') !important; }
+.block-amarillo { background-image: url('img/bg-regalos.jpg') !important; }
+.block-azul-editorial, .countdown-section { background-image: url('img/bg-final.jpg') !important; }
 
 /* TARJETAS CRISTAL TRASLÚCIDAS GENERALES */
 .glass-card-invitation {
@@ -193,15 +157,31 @@ body {
     -webkit-backdrop-filter: blur(8px);
 }
 
-/* CORRECCIÓN COLOR TEXTO DE INVITACIÓN (BLOQUE 1) */
+/* CONTENEDOR DRESS CODE PARA QUE SE ALINEEN VERTICALMENTE */
+.dress-code-container {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    align-items: center !important;
+}
+
+.dress-code-container .glass-card-invitation {
+    width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* TEXTOS Y ESTILOS GENERALES */
 .custom-subtitle-large-custom {
-    color: #1a233a !important; /* Azul marino oscuro legible */
+    color: #1a233a !important;
     font-size: 1.05rem !important;
     line-height: 1.55 !important;
     font-weight: 700 !important;
 }
 
-/* TEXTOS Y ESTILOS GENERALES */
 .title-large-custom { font-size: 2.5rem !important; margin-bottom: 15px; }
 .nowrap-title { white-space: nowrap; }
 
@@ -214,15 +194,6 @@ body {
 
 .dc-title-large { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
 .dc-style-large { font-weight: 800; font-size: 1.3rem; margin-bottom: 12px; }
-
-/* DRESS CODE CHICAS COMPACTO */
-.texto-mujeres-compacto {
-    font-size: 0.85rem !important;
-    line-height: 1.4 !important;
-    max-width: 270px;
-    margin: 0 auto 20px auto !important;
-    color: #333;
-}
 
 .bank-details-large { font-size: 1.05rem; line-height: 1.8; font-weight: 600; }
 
